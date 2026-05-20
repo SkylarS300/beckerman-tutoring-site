@@ -11,24 +11,21 @@ const steps = [
     step: "01",
     title: "Free Consultation",
     description:
-      /* JACKI: Describe what happens on the first call in your own words. */
-      "We start with a no-pressure conversation about your child's needs, goals, and learning style. No commitment required.",
+      "JACKI: Describe what happens on the first call. What do you talk about? What should a parent expect?",
   },
   {
     icon: ClipboardList,
     step: "02",
     title: "Custom Learning Plan",
     description:
-      /* JACKI: Describe how you build a plan for each student. */
-      "Jacki builds a personalized roadmap drawing from school records, IEPs, and family input — targeting exactly where support is needed most.",
+      "JACKI: Describe how you build a plan for each student. What information do you pull from? How long does it take?",
   },
   {
     icon: TrendingUp,
     step: "03",
     title: "Ongoing Support & Growth",
     description:
-      /* JACKI: Describe what ongoing sessions look like and how you communicate with families. */
-      "Regular 1:1 or small group sessions build skills, confidence, and independence — with consistent communication to families along the way.",
+      "JACKI: Describe what ongoing sessions look like. How do you communicate with families along the way?",
   },
 ];
 
@@ -44,8 +41,8 @@ export default function HowItWorks() {
             How it works
           </h2>
           <p className="text-charcoal mt-4 max-w-xl mx-auto leading-relaxed">
-            {/* JACKI: One sentence summarizing your process. */}
-            Every student is different. The process is simple — the results are lasting.
+            {/* JACKI: One sentence summarizing your process in your own words. */}
+            Your process summary goes here.
           </p>
         </FadeIn>
 

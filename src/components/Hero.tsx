@@ -7,7 +7,6 @@ export default function Hero() {
     <section className="bg-cream min-h-[90vh] flex items-center px-6 py-20">
       <div className="max-w-6xl mx-auto w-full flex flex-col md:flex-row items-center gap-12">
 
-        {/* Left: Text */}
         <div className="flex-1 flex flex-col gap-6">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
@@ -24,9 +23,9 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-navy text-5xl md:text-6xl font-heading leading-tight"
           >
-            {/* JACKI: This is your headline. Replace with something in your own words. */}
-            Every student has a way they learn best.{" "}
-            <span className="text-sage">Let's find yours.</span>
+            {/* JACKI: This is the first thing visitors read. Write a headline in your own words that captures what you do and who you do it for. Keep it short — one or two lines max. */}
+            Your headline goes here.{" "}
+            <span className="text-sage">Make it yours.</span>
           </motion.h1>
 
           <motion.p
@@ -35,10 +34,8 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.35 }}
             className="text-charcoal text-lg leading-relaxed max-w-xl"
           >
-            {/* JACKI: Write 2-3 sentences introducing yourself and who you work with. */}
-            Jacki Beckerman is a certified special education specialist and
-            executive functioning coach with 10+ years helping students
-            K–12 — especially those with learning disabilities, ADHD, and IEPs.
+            {/* JACKI: Write 2-3 sentences introducing yourself. Who do you work with? What do you help them do? */}
+            Your introduction goes here.
           </motion.p>
 
           <motion.div
@@ -66,7 +63,6 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Right: Photo */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -74,7 +70,7 @@ export default function Hero() {
           className="flex-1 flex justify-center items-center"
         >
           <div className="w-80 h-80 md:w-96 md:h-96 rounded-full bg-blush flex items-center justify-center text-charcoal text-center p-8 font-heading text-xl">
-            {/* JACKI: Your photo goes here */}
+            {/* JACKI: Your photo goes here. A warm, approachable headshot works best. */}
             Jacki's photo goes here
           </div>
         </motion.div>

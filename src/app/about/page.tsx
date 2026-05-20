@@ -51,25 +51,25 @@ const approach = [
     icon: Heart,
     title: "Strength-based",
     description:
-      "Sessions start with what a student is good at, not what they're behind on. Building from strengths creates momentum.",
+      "JACKI: Describe what strength-based means to you in practice. What does this look like in a session?",
   },
   {
     icon: FileText,
     title: "IEP-informed",
     description:
-      "Jacki reads the paperwork. She pulls from IEPs, school reports, and evaluations to make sure sessions are actually aligned with what each student needs.",
+      "JACKI: Describe how you use a student's IEP. What do you actually do with that documentation?",
   },
   {
     icon: Brain,
     title: "Whole-child",
     description:
-      "Academic struggles rarely exist in isolation. Jacki looks at the full picture including confidence, anxiety, home environment, and social factors.",
+      "JACKI: Describe what whole-child means to you. What factors beyond academics do you consider?",
   },
   {
     icon: GraduationCap,
     title: "Independence-focused",
     description:
-      "The goal is never dependency on a tutor. Every session is building toward a student who can manage their own learning.",
+      "JACKI: Describe your goal around student independence. What does success look like long term?",
   },
 ];
 
@@ -87,6 +87,7 @@ export default function AboutPage() {
                 <div className="w-72 h-72 md:w-96 md:h-96 rounded-2xl bg-blush" />
                 <div className="absolute -bottom-4 -right-4 w-72 h-72 md:w-96 md:h-96 rounded-2xl border-2 border-sage" />
                 <div className="absolute inset-0 flex items-center justify-center font-heading text-charcoal text-lg text-center p-8">
+                  {/* JACKI: Your photo goes here */}
                   Jacki's photo goes here
                 </div>
               </div>
@@ -97,20 +98,12 @@ export default function AboutPage() {
                 About Jacki
               </span>
               <h1 className="text-navy text-4xl md:text-5xl font-heading leading-tight">
-                She's been in the classroom. She knows what it actually takes.
+                {/* JACKI: A headline that captures who you are in one line. */}
+                Your headline goes here.
               </h1>
               <p className="text-charcoal leading-relaxed">
-                Jacki Beckerman spent over a decade as a special education
-                teacher in New York City and Washington D.C. public schools
-                before moving into one on one coaching and learning support.
-                She has worked with students across every grade level, in
-                self-contained classrooms, co-teaching settings, and
-                private coaching practices.
-              </p>
-              <p className="text-charcoal leading-relaxed">
-                She started through Teach For America and stayed because
-                she genuinely loves this work. Her students tend to stick
-                with her for years.
+                {/* JACKI: 2-3 sentences about your background. Where did you start? What brought you to this work? */}
+                Your bio goes here.
               </p>
             </FadeIn>
           </div>
@@ -187,20 +180,16 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="bg-navy py-24 px-6">
-          <FadeIn className="max-w-3xl mx-auto flex flex-col items-center text-center gap-8">
-            <h2 className="text-cream text-4xl md:text-5xl font-heading leading-tight">
+        {/* Inline CTA nudge — no redundant big section */}
+        <section className="bg-navy py-16 px-6">
+          <FadeIn className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+            <p className="text-cream text-lg font-heading">
               Want to see if it's a good fit?
-            </h2>
-            <p className="text-cream/70 leading-relaxed max-w-xl">
-              The first call is free and there's no commitment. Just a
-              conversation about your child and what they need.
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
               <Link
                 href="/contact"
-                className="bg-cream text-navy px-8 py-4 rounded-full font-medium hover:bg-blush transition-colors block"
+                className="bg-cream text-navy px-8 py-4 rounded-full font-medium hover:bg-blush transition-colors block whitespace-nowrap"
               >
                 Book a Free Consult
               </Link>

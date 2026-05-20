@@ -10,22 +10,26 @@ const services = [
   {
     icon: Brain,
     title: "Executive Functioning Coaching",
-    blurb: "Planning, organization, time management, and follow-through.",
+    blurb:
+      "JACKI: One sentence describing this service in your own words.",
   },
   {
     icon: BookOpen,
     title: "Special Education Support",
-    blurb: "IEP-informed tutoring built around each student's learning profile.",
+    blurb:
+      "JACKI: One sentence describing this service in your own words.",
   },
   {
     icon: Calculator,
     title: "Academic Tutoring",
-    blurb: "All subjects, K–12, differentiated to how each student learns.",
+    blurb:
+      "JACKI: One sentence describing this service in your own words.",
   },
   {
     icon: GraduationCap,
     title: "College Readiness",
-    blurb: "Building independence and self-advocacy for life after high school.",
+    blurb:
+      "JACKI: One sentence describing this service in your own words.",
   },
 ];
 

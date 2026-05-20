@@ -5,21 +5,21 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const testimonials = [
   {
     quote:
-      "My son has ADHD and had been struggling in school for years. After a few months with Jacki he started turning in assignments on time and actually felt good about going to school. I wish we had found her sooner.",
-    name: "Parent of a 7th grader",
-    detail: "Executive Functioning Coaching",
+      "JACKI: Paste a real testimonial here from a parent or student. If you don't have one yet, ask a past student or family you've worked with.",
+    name: "JACKI: Parent or student title e.g. Parent of a 7th grader",
+    detail: "JACKI: Which service did they use? e.g. Executive Functioning Coaching",
   },
   {
     quote:
-      "Jacki took the time to actually read my daughter's IEP and build sessions around it. She didn't just drill her on content. She taught her how to study, how to ask for help, and how to advocate for herself.",
-    name: "Parent of a 9th grader",
-    detail: "Special Education Support",
+      "JACKI: Paste a second testimonial here.",
+    name: "JACKI: Parent or student title",
+    detail: "JACKI: Service name",
   },
   {
     quote:
-      "I came to Jacki junior year completely overwhelmed. She helped me get organized, stay on top of deadlines, and actually understand the material instead of just memorizing it. I got into my first choice school.",
-    name: "High school student",
-    detail: "Academic Tutoring & College Readiness",
+      "JACKI: Paste a third testimonial here.",
+    name: "JACKI: Parent or student title",
+    detail: "JACKI: Service name",
   },
 ];
 
@@ -50,8 +50,6 @@ export default function Testimonials() {
   return (
     <section className="bg-navy py-24 px-6">
       <div className="max-w-4xl mx-auto flex flex-col items-center gap-12">
-
-        {/* Header */}
         <div className="text-center">
           <span className="text-sage font-medium text-sm uppercase tracking-widest">
             What Families Say
@@ -61,7 +59,6 @@ export default function Testimonials() {
           </h2>
         </div>
 
-        {/* Card */}
         <div
           style={{
             opacity: visible ? 1 : 0,
@@ -79,7 +76,6 @@ export default function Testimonials() {
           </div>
         </div>
 
-        {/* Controls */}
         <div className="flex items-center gap-6">
           <button
             onClick={prev}
@@ -87,8 +83,6 @@ export default function Testimonials() {
           >
             <ChevronLeft size={20} />
           </button>
-
-          {/* Dots */}
           <div className="flex gap-2">
             {testimonials.map((_, i) => (
               <button
@@ -100,7 +94,6 @@ export default function Testimonials() {
               />
             ))}
           </div>
-
           <button
             onClick={next}
             className="bg-cream/10 hover:bg-cream/20 text-cream p-3 rounded-full transition-colors"
@@ -108,7 +101,6 @@ export default function Testimonials() {
             <ChevronRight size={20} />
           </button>
         </div>
-
       </div>
     </section>
   );

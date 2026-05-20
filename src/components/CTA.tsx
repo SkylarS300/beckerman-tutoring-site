@@ -11,13 +11,12 @@ export default function CTA() {
           Get Started
         </span>
         <h2 className="text-navy text-4xl md:text-5xl font-heading leading-tight">
-          {/* JACKI: A closing line that sounds like you. */}
-          Not sure where to start? That's what the first call is for.
+          {/* JACKI: A closing line that sounds like you. Something warm and direct. */}
+          Your closing line goes here.
         </h2>
         <p className="text-charcoal leading-relaxed max-w-xl">
-          {/* JACKI: 2 sentences describing the free consult and what to expect. */}
-          The free consultation is a no-pressure conversation about your child,
-          what they're working through, and whether Jacki is the right fit.
+          {/* JACKI: 1-2 sentences about the free consult. What should a parent expect from that first call? */}
+          Your description goes here.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>

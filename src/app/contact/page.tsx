@@ -11,37 +11,37 @@ const faqs = [
   {
     question: "Do you offer a free consultation?",
     answer:
-      "Yes. The first call is always free. It's a conversation about your child, what they're working through, and whether Jacki is the right fit. No commitment required.",
+      "JACKI: Answer this in your own words. What happens on that first call?",
   },
   {
     question: "What age groups do you work with?",
     answer:
-      "Jacki works with students from elementary school through high school and into college transition. The youngest students she typically takes on are in 2nd or 3rd grade.",
+      "JACKI: Answer this. What is the youngest student you typically take on? Do you work with college students?",
   },
   {
     question: "Do you work with students who have IEPs?",
     answer:
-      "Yes. Jacki has spent her entire career in special education. She reads IEPs, understands accommodations, and builds sessions around what each student's documentation says they need.",
+      "JACKI: Answer this in your own words.",
   },
   {
     question: "What is the difference between tutoring and executive functioning coaching?",
     answer:
-      "Tutoring focuses on specific subject content. Executive functioning coaching focuses on the skills behind learning — planning, organization, time management, and follow-through. Many students need both and Jacki can address both within the same engagement.",
+      "JACKI: Answer this. This is a common question from parents who aren't sure what their child needs.",
   },
   {
     question: "Do you offer online sessions?",
     answer:
-      "Yes. All services are available fully online over video call. Students anywhere in the country can work with Jacki.",
+      "JACKI: Answer this. What platform do you use? Is the experience different from in person?",
   },
   {
     question: "How are sessions structured?",
     answer:
-      "Every student starts with an intake process where Jacki collects information from the family, reviews any school documentation, and identifies goals. From there sessions are built around a customized plan that gets updated as the student progresses.",
+      "JACKI: Describe what a typical session looks like from start to finish.",
   },
   {
     question: "How often do students typically meet?",
     answer:
-      "Most students meet once or twice a week. Frequency depends on the student's needs, goals, and schedule. Jacki will make a recommendation after the initial consultation.",
+      "JACKI: Answer this. What do you usually recommend and why?",
   },
 ];
 
@@ -82,12 +82,12 @@ export default function ContactPage() {
               Get In Touch
             </span>
             <h1 className="text-navy text-4xl md:text-5xl font-heading leading-tight">
-              Let's figure out what your child needs.
+              {/* JACKI: A welcoming headline for the contact page. */}
+              Your contact headline goes here.
             </h1>
             <p className="text-charcoal leading-relaxed">
-              Fill out the form below and Jacki will follow up within 48 hours
-              to schedule a free consultation. The more detail you can share
-              the better.
+              {/* JACKI: 1-2 sentences telling parents what to expect after they fill out the form. How soon will you follow up? */}
+              Your contact intro goes here.
             </p>
           </FadeIn>
         </section>
@@ -103,12 +103,12 @@ export default function ContactPage() {
                 className="bg-cream rounded-2xl p-12 text-center flex flex-col gap-4"
               >
                 <h2 className="text-navy text-3xl font-heading">
+                  {/* JACKI: A warm confirmation message after someone submits the form. */}
                   Got it. Talk soon.
                 </h2>
                 <p className="text-charcoal leading-relaxed">
-                  Jacki will be in touch within 48 hours to set up a time
-                  to talk. In the meantime feel free to look through the
-                  services page if you haven't already.
+                  {/* JACKI: A follow-up line telling them what happens next. */}
+                  Your confirmation message goes here.
                 </p>
               </motion.div>
             ) : (
