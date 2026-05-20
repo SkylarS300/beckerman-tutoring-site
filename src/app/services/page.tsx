@@ -164,23 +164,28 @@ export default function ServicesPage() {
             </StaggerContainer>
           </div>
         </section>
-
-        {/* Inline CTA nudge */}
-        <section className="bg-navy py-16 px-6">
-          <FadeIn className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-            <p className="text-cream text-lg font-heading">
-              Not sure which service fits?
-            </p>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-              <Link
-                href="/contact"
-                className="bg-cream text-navy px-8 py-4 rounded-full font-medium hover:bg-blush transition-colors block whitespace-nowrap"
-              >
-                Book a Free Consult
-              </Link>
-            </motion.div>
-          </FadeIn>
-        </section>
+        
+{/* CTA */}
+<section className="bg-navy py-24 px-6">
+  <FadeIn className="max-w-3xl mx-auto flex flex-col items-center text-center gap-8">
+    <h2 className="text-cream text-4xl md:text-5xl font-heading leading-tight">
+      Not sure which service fits?
+    </h2>
+    <p className="text-cream/70 leading-relaxed max-w-xl">
+      The free consultation is the right place to start. Jacki will
+      figure out what makes sense based on your child's specific
+      situation.
+    </p>
+    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+      <Link
+        href="/contact"
+        className="bg-cream text-navy px-8 py-4 rounded-full font-medium hover:bg-blush transition-colors block"
+      >
+        Book a Free Consult
+      </Link>
+    </motion.div>
+  </FadeIn>
+</section>
 
       </main>
       <Footer />

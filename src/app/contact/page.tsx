@@ -26,7 +26,7 @@ const faqs = [
   {
     question: "What is the difference between tutoring and executive functioning coaching?",
     answer:
-      "JACKI: Answer this. This is a common question from parents who aren't sure what their child needs.",
+      "JACKI: You'll know the answer far better than I will.",
   },
   {
     question: "Do you offer online sessions?",

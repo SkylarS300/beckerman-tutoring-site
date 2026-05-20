@@ -179,23 +179,27 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
-
-        {/* Inline CTA nudge — no redundant big section */}
-        <section className="bg-navy py-16 px-6">
-          <FadeIn className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-            <p className="text-cream text-lg font-heading">
-              Want to see if it's a good fit?
-            </p>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-              <Link
-                href="/contact"
-                className="bg-cream text-navy px-8 py-4 rounded-full font-medium hover:bg-blush transition-colors block whitespace-nowrap"
-              >
-                Book a Free Consult
-              </Link>
-            </motion.div>
-          </FadeIn>
-        </section>
+        
+ {/* CTA */}
+<section className="bg-navy py-24 px-6">
+  <FadeIn className="max-w-3xl mx-auto flex flex-col items-center text-center gap-8">
+    <h2 className="text-cream text-4xl md:text-5xl font-heading leading-tight">
+      Want to see if it's a good fit?
+    </h2>
+    <p className="text-cream/70 leading-relaxed max-w-xl">
+      The first call is free and there's no commitment. Just a
+      conversation about your child and what they need.
+    </p>
+    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+      <Link
+        href="/contact"
+        className="bg-cream text-navy px-8 py-4 rounded-full font-medium hover:bg-blush transition-colors block"
+      >
+        Book a Free Consult
+      </Link>
+    </motion.div>
+  </FadeIn>
+</section>
 
       </main>
       <Footer />
