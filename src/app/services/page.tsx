@@ -1,7 +1,12 @@
+"use client";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { Brain, BookOpen, Calculator, GraduationCap, Monitor, Users } from "lucide-react";
+import FadeIn from "@/components/animations/FadeIn";
+import StaggerContainer from "@/components/animations/StaggerContainer";
+import StaggerItem from "@/components/animations/StaggerItem";
 
 const services = [
   {
@@ -96,7 +101,7 @@ export default function ServicesPage() {
 
         {/* Hero */}
         <section className="bg-cream py-24 px-6">
-          <div className="max-w-3xl mx-auto text-center flex flex-col gap-6">
+          <FadeIn className="max-w-3xl mx-auto text-center flex flex-col gap-6">
             <span className="text-sage font-medium text-sm uppercase tracking-widest">
               What Jacki Offers
             </span>
@@ -109,53 +114,65 @@ export default function ServicesPage() {
               executive functioning coaching, and classroom teaching to build
               something specific to each student.
             </p>
-          </div>
+          </FadeIn>
         </section>
 
         {/* Services */}
         <section className="bg-blush py-24 px-6">
           <div className="max-w-6xl mx-auto flex flex-col gap-10">
-            {services.map(({ icon: Icon, title, description, details, tags }) => (
-              <div
-                key={title}
-                className="bg-cream rounded-2xl p-8 md:p-12 flex flex-col md:flex-row gap-10 border border-white shadow-sm"
-              >
-                {/* Left */}
-                <div className="flex flex-col gap-4 md:w-1/2">
-                  <div className="bg-navy p-3 rounded-xl w-fit">
-                    <Icon size={22} strokeWidth={1.75} className="text-cream" />
-                  </div>
-                  <h2 className="text-navy text-2xl font-heading">{title}</h2>
-                  <p className="text-charcoal text-sm leading-relaxed">{description}</p>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="bg-blush text-navy text-xs font-medium px-3 py-1 rounded-full border border-navy/10"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Right */}
-                <div className="md:w-1/2 flex flex-col gap-3 justify-center">
-                  {details.map((point) => (
-                    <div key={point} className="flex items-start gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-sage mt-2 shrink-0" />
-                      <p className="text-charcoal text-sm leading-relaxed">{point}</p>
+            <StaggerContainer className="flex flex-col gap-10">
+              {services.map(({ icon: Icon, title, description, details, tags }) => (
+                <StaggerItem key={title}>
+                  <motion.div
+                    whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.07)" }}
+                    transition={{ duration: 0.25 }}
+                    className="bg-cream rounded-2xl p-8 md:p-12 flex flex-col md:flex-row gap-10 border border-white shadow-sm"
+                  >
+                    {/* Left */}
+                    <div className="flex flex-col gap-4 md:w-1/2">
+                      <div className="bg-navy p-3 rounded-xl w-fit">
+                        <Icon size={22} strokeWidth={1.75} className="text-cream" />
+                      </div>
+                      <h2 className="text-navy text-2xl font-heading">{title}</h2>
+                      <p className="text-charcoal text-sm leading-relaxed">{description}</p>
+                      <div className="flex flex-wrap gap-2 mt-2">
+                        {tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="bg-blush text-navy text-xs font-medium px-3 py-1 rounded-full border border-navy/10"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+
+                    {/* Right */}
+                    <div className="md:w-1/2 flex flex-col gap-3 justify-center">
+                      {details.map((point) => (
+                        <motion.div
+                          key={point}
+                          initial={{ opacity: 0, x: 20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.4 }}
+                          className="flex items-start gap-3"
+                        >
+                          <div className="w-1.5 h-1.5 rounded-full bg-sage mt-2 shrink-0" />
+                          <p className="text-charcoal text-sm leading-relaxed">{point}</p>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
           </div>
         </section>
 
         {/* CTA */}
         <section className="bg-navy py-24 px-6">
-          <div className="max-w-3xl mx-auto flex flex-col items-center text-center gap-8">
+          <FadeIn className="max-w-3xl mx-auto flex flex-col items-center text-center gap-8">
             <h2 className="text-cream text-4xl md:text-5xl font-heading leading-tight">
               Not sure which service fits?
             </h2>
@@ -164,13 +181,15 @@ export default function ServicesPage() {
               figure out what makes sense based on your child's specific
               situation.
             </p>
-            <Link
-              href="/contact"
-              className="bg-cream text-navy px-8 py-4 rounded-full font-medium hover:bg-blush transition-colors"
-            >
-              Book a Free Consult
-            </Link>
-          </div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+              <Link
+                href="/contact"
+                className="bg-cream text-navy px-8 py-4 rounded-full font-medium hover:bg-blush transition-colors block"
+              >
+                Book a Free Consult
+              </Link>
+            </motion.div>
+          </FadeIn>
         </section>
 
       </main>

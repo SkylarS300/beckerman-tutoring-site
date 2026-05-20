@@ -1,4 +1,6 @@
 import { GraduationCap, FileText, Brain, School, Heart } from "lucide-react";
+import StaggerContainer from "@/components/animations/StaggerContainer";
+import StaggerItem from "@/components/animations/StaggerItem";
 
 const credentials = [
   { icon: GraduationCap, label: "Teach For America Alum" },
@@ -11,14 +13,16 @@ const credentials = [
 export default function TrustBar() {
   return (
     <section className="bg-navy py-6 px-6">
-      <div className="max-w-6xl mx-auto flex flex-wrap justify-center gap-8 md:gap-12">
+      <StaggerContainer className="max-w-6xl mx-auto flex flex-wrap justify-center gap-8 md:gap-12">
         {credentials.map(({ icon: Icon, label }) => (
-          <div key={label} className="flex items-center gap-2 text-cream">
-            <Icon size={18} strokeWidth={1.75} className="text-sage" />
-            <span className="text-sm font-medium tracking-wide">{label}</span>
-          </div>
+          <StaggerItem key={label}>
+            <div className="flex items-center gap-2 text-cream">
+              <Icon size={18} strokeWidth={1.75} className="text-sage" />
+              <span className="text-sm font-medium tracking-wide">{label}</span>
+            </div>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerContainer>
     </section>
   );
 }

@@ -1,4 +1,9 @@
+"use client";
+import { motion } from "framer-motion";
 import { MessageCircle, ClipboardList, TrendingUp } from "lucide-react";
+import FadeIn from "@/components/animations/FadeIn";
+import StaggerContainer from "@/components/animations/StaggerContainer";
+import StaggerItem from "@/components/animations/StaggerItem";
 
 const steps = [
   {
@@ -6,21 +11,24 @@ const steps = [
     step: "01",
     title: "Free Consultation",
     description:
-      "We start with a no-pressure conversation about your child's unique needs, goals, and learning style. No commitment required.",
+      /* JACKI: Describe what happens on the first call in your own words. */
+      "We start with a no-pressure conversation about your child's needs, goals, and learning style. No commitment required.",
   },
   {
     icon: ClipboardList,
     step: "02",
     title: "Custom Learning Plan",
     description:
-      "Jacki builds a personalized roadmap drawing from school records, IEPs, and family input—targeting exactly where support is needed most.",
+      /* JACKI: Describe how you build a plan for each student. */
+      "Jacki builds a personalized roadmap drawing from school records, IEPs, and family input — targeting exactly where support is needed most.",
   },
   {
     icon: TrendingUp,
     step: "03",
     title: "Ongoing Support & Growth",
     description:
-      "Regular 1:1 or small group sessions build skills, confidence, and independence—with consistent communication to families along the way.",
+      /* JACKI: Describe what ongoing sessions look like and how you communicate with families. */
+      "Regular 1:1 or small group sessions build skills, confidence, and independence — with consistent communication to families along the way.",
   },
 ];
 
@@ -28,9 +36,7 @@ export default function HowItWorks() {
   return (
     <section className="bg-cream py-24 px-6">
       <div className="max-w-6xl mx-auto">
-
-        {/* Header */}
-        <div className="text-center mb-16">
+        <FadeIn className="text-center mb-16">
           <span className="text-sage font-medium text-sm uppercase tracking-widest">
             The Process
           </span>
@@ -38,31 +44,33 @@ export default function HowItWorks() {
             How it works
           </h2>
           <p className="text-charcoal mt-4 max-w-xl mx-auto leading-relaxed">
-            Every student is different. The process is simple—the results are lasting.
+            {/* JACKI: One sentence summarizing your process. */}
+            Every student is different. The process is simple — the results are lasting.
           </p>
-        </div>
+        </FadeIn>
 
-        {/* Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {steps.map(({ icon: Icon, step, title, description }) => (
-            <div
-              key={step}
-              className="bg-white rounded-2xl p-8 flex flex-col gap-5 shadow-sm border border-blush"
-            >
-              <div className="flex items-center justify-between">
-                <div className="bg-blush p-3 rounded-xl">
-                  <Icon size={22} strokeWidth={1.75} className="text-navy" />
+            <StaggerItem key={step}>
+              <motion.div
+                whileHover={{ y: -6, boxShadow: "0 12px 40px rgba(0,0,0,0.08)" }}
+                transition={{ duration: 0.25 }}
+                className="bg-white rounded-2xl p-8 flex flex-col gap-5 shadow-sm border border-blush h-full"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="bg-blush p-3 rounded-xl">
+                    <Icon size={22} strokeWidth={1.75} className="text-navy" />
+                  </div>
+                  <span className="font-heading text-4xl text-blush font-bold">
+                    {step}
+                  </span>
                 </div>
-                <span className="font-heading text-4xl text-blush font-bold">
-                  {step}
-                </span>
-              </div>
-              <h3 className="text-navy text-xl font-heading">{title}</h3>
-              <p className="text-charcoal leading-relaxed text-sm">{description}</p>
-            </div>
+                <h3 className="text-navy text-xl font-heading">{title}</h3>
+                <p className="text-charcoal leading-relaxed text-sm">{description}</p>
+              </motion.div>
+            </StaggerItem>
           ))}
-        </div>
-
+        </StaggerContainer>
       </div>
     </section>
   );

@@ -1,7 +1,12 @@
+"use client";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { GraduationCap, Brain, School, FileText, Heart } from "lucide-react";
+import { motion } from "framer-motion";
+import { GraduationCap, Brain, FileText, Heart } from "lucide-react";
+import FadeIn from "@/components/animations/FadeIn";
+import StaggerContainer from "@/components/animations/StaggerContainer";
+import StaggerItem from "@/components/animations/StaggerItem";
 
 const timeline = [
   {
@@ -77,9 +82,7 @@ export default function AboutPage() {
         {/* Hero */}
         <section className="bg-cream py-24 px-6">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
-
-            {/* Photo */}
-            <div className="flex-1 flex justify-center">
+            <FadeIn direction="right" className="flex-1 flex justify-center">
               <div className="relative">
                 <div className="w-72 h-72 md:w-96 md:h-96 rounded-2xl bg-blush" />
                 <div className="absolute -bottom-4 -right-4 w-72 h-72 md:w-96 md:h-96 rounded-2xl border-2 border-sage" />
@@ -87,10 +90,9 @@ export default function AboutPage() {
                   Jacki's photo goes here
                 </div>
               </div>
-            </div>
+            </FadeIn>
 
-            {/* Text */}
-            <div className="flex-1 flex flex-col gap-6">
+            <FadeIn direction="left" delay={0.15} className="flex-1 flex flex-col gap-6">
               <span className="text-sage font-medium text-sm uppercase tracking-widest">
                 About Jacki
               </span>
@@ -110,73 +112,76 @@ export default function AboutPage() {
                 she genuinely loves this work. Her students tend to stick
                 with her for years.
               </p>
-            </div>
+            </FadeIn>
           </div>
         </section>
 
         {/* Approach */}
         <section className="bg-blush py-24 px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
+            <FadeIn className="text-center mb-16">
               <span className="text-sage font-medium text-sm uppercase tracking-widest">
                 Philosophy
               </span>
               <h2 className="text-navy text-4xl md:text-5xl font-heading mt-3">
                 How Jacki works
               </h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            </FadeIn>
+            <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {approach.map(({ icon: Icon, title, description }) => (
-                <div
-                  key={title}
-                  className="bg-cream rounded-2xl p-8 flex flex-col gap-4 border border-white shadow-sm"
-                >
-                  <div className="bg-navy p-3 rounded-xl w-fit">
-                    <Icon size={22} strokeWidth={1.75} className="text-cream" />
-                  </div>
-                  <h3 className="text-navy text-xl font-heading">{title}</h3>
-                  <p className="text-charcoal text-sm leading-relaxed">{description}</p>
-                </div>
+                <StaggerItem key={title}>
+                  <motion.div
+                    whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.07)" }}
+                    transition={{ duration: 0.25 }}
+                    className="bg-cream rounded-2xl p-8 flex flex-col gap-4 border border-white shadow-sm h-full"
+                  >
+                    <div className="bg-navy p-3 rounded-xl w-fit">
+                      <Icon size={22} strokeWidth={1.75} className="text-cream" />
+                    </div>
+                    <h3 className="text-navy text-xl font-heading">{title}</h3>
+                    <p className="text-charcoal text-sm leading-relaxed">{description}</p>
+                  </motion.div>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
         </section>
 
         {/* Timeline */}
         <section className="bg-cream py-24 px-6">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
+            <FadeIn className="text-center mb-16">
               <span className="text-sage font-medium text-sm uppercase tracking-widest">
                 Experience
               </span>
               <h2 className="text-navy text-4xl md:text-5xl font-heading mt-3">
                 Background
               </h2>
-            </div>
+            </FadeIn>
             <div className="flex flex-col gap-0">
               {timeline.map((item, index) => (
-                <div key={index} className="flex gap-6">
-                  {/* Line */}
-                  <div className="flex flex-col items-center">
-                    <div className="w-3 h-3 rounded-full bg-sage mt-1 shrink-0" />
-                    {index < timeline.length - 1 && (
-                      <div className="w-0.5 bg-blush flex-1 my-1" />
-                    )}
+                <FadeIn key={index} delay={index * 0.1} direction="up">
+                  <div className="flex gap-6">
+                    <div className="flex flex-col items-center">
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                        className="w-3 h-3 rounded-full bg-sage mt-1 shrink-0"
+                      />
+                      {index < timeline.length - 1 && (
+                        <div className="w-0.5 bg-blush flex-1 my-1" />
+                      )}
+                    </div>
+                    <div className="flex flex-col gap-1 pb-10">
+                      <span className="text-sage text-sm font-medium">{item.years}</span>
+                      <h3 className="text-navy font-heading text-xl">{item.role}</h3>
+                      <span className="text-charcoal/60 text-sm">{item.place}</span>
+                      <p className="text-charcoal text-sm leading-relaxed mt-2">{item.description}</p>
+                    </div>
                   </div>
-                  {/* Content */}
-                  <div className="flex flex-col gap-1 pb-10">
-                    <span className="text-sage text-sm font-medium">
-                      {item.years}
-                    </span>
-                    <h3 className="text-navy font-heading text-xl">
-                      {item.role}
-                    </h3>
-                    <span className="text-charcoal/60 text-sm">{item.place}</span>
-                    <p className="text-charcoal text-sm leading-relaxed mt-2">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
+                </FadeIn>
               ))}
             </div>
           </div>
@@ -184,7 +189,7 @@ export default function AboutPage() {
 
         {/* CTA */}
         <section className="bg-navy py-24 px-6">
-          <div className="max-w-3xl mx-auto flex flex-col items-center text-center gap-8">
+          <FadeIn className="max-w-3xl mx-auto flex flex-col items-center text-center gap-8">
             <h2 className="text-cream text-4xl md:text-5xl font-heading leading-tight">
               Want to see if it's a good fit?
             </h2>
@@ -192,13 +197,15 @@ export default function AboutPage() {
               The first call is free and there's no commitment. Just a
               conversation about your child and what they need.
             </p>
-            <Link
-              href="/contact"
-              className="bg-cream text-navy px-8 py-4 rounded-full font-medium hover:bg-blush transition-colors"
-            >
-              Book a Free Consult
-            </Link>
-          </div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+              <Link
+                href="/contact"
+                className="bg-cream text-navy px-8 py-4 rounded-full font-medium hover:bg-blush transition-colors block"
+              >
+                Book a Free Consult
+              </Link>
+            </motion.div>
+          </FadeIn>
         </section>
 
       </main>

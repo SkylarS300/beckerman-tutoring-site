@@ -2,6 +2,10 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
+import FadeIn from "@/components/animations/FadeIn";
+import StaggerContainer from "@/components/animations/StaggerContainer";
+import StaggerItem from "@/components/animations/StaggerItem";
 
 const faqs = [
   {
@@ -73,7 +77,7 @@ export default function ContactPage() {
 
         {/* Header */}
         <section className="bg-cream py-24 px-6">
-          <div className="max-w-3xl mx-auto text-center flex flex-col gap-6">
+          <FadeIn className="max-w-3xl mx-auto text-center flex flex-col gap-6">
             <span className="text-sage font-medium text-sm uppercase tracking-widest">
               Get In Touch
             </span>
@@ -85,14 +89,19 @@ export default function ContactPage() {
               to schedule a free consultation. The more detail you can share
               the better.
             </p>
-          </div>
+          </FadeIn>
         </section>
 
         {/* Form */}
         <section className="bg-blush py-24 px-6">
-          <div className="max-w-2xl mx-auto">
+          <FadeIn className="max-w-2xl mx-auto">
             {submitted ? (
-              <div className="bg-cream rounded-2xl p-12 text-center flex flex-col gap-4">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4 }}
+                className="bg-cream rounded-2xl p-12 text-center flex flex-col gap-4"
+              >
                 <h2 className="text-navy text-3xl font-heading">
                   Got it. Talk soon.
                 </h2>
@@ -101,9 +110,12 @@ export default function ContactPage() {
                   to talk. In the meantime feel free to look through the
                   services page if you haven't already.
                 </p>
-              </div>
+              </motion.div>
             ) : (
-              <form
+              <motion.form
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
                 onSubmit={handleSubmit}
                 className="bg-cream rounded-2xl p-8 md:p-12 flex flex-col gap-6"
               >
@@ -111,12 +123,9 @@ export default function ContactPage() {
                   Tell Jacki about your child
                 </h2>
 
-                {/* Parent name + email */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-2">
-                    <label className="text-charcoal text-sm font-medium">
-                      Your name
-                    </label>
+                    <label className="text-charcoal text-sm font-medium">Your name</label>
                     <input
                       type="text"
                       name="parentName"
@@ -128,9 +137,7 @@ export default function ContactPage() {
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-charcoal text-sm font-medium">
-                      Email
-                    </label>
+                    <label className="text-charcoal text-sm font-medium">Email</label>
                     <input
                       type="email"
                       name="email"
@@ -143,11 +150,8 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Phone */}
                 <div className="flex flex-col gap-2">
-                  <label className="text-charcoal text-sm font-medium">
-                    Phone number
-                  </label>
+                  <label className="text-charcoal text-sm font-medium">Phone number</label>
                   <input
                     type="tel"
                     name="phone"
@@ -158,12 +162,9 @@ export default function ContactPage() {
                   />
                 </div>
 
-                {/* Student name + grade */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-2">
-                    <label className="text-charcoal text-sm font-medium">
-                      Student's name
-                    </label>
+                    <label className="text-charcoal text-sm font-medium">Student's name</label>
                     <input
                       type="text"
                       name="studentName"
@@ -175,9 +176,7 @@ export default function ContactPage() {
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-charcoal text-sm font-medium">
-                      Grade
-                    </label>
+                    <label className="text-charcoal text-sm font-medium">Grade</label>
                     <select
                       name="grade"
                       value={formData.grade}
@@ -195,7 +194,6 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Subjects */}
                 <div className="flex flex-col gap-2">
                   <label className="text-charcoal text-sm font-medium">
                     What subjects or areas do you need support with?
@@ -210,7 +208,6 @@ export default function ContactPage() {
                   />
                 </div>
 
-                {/* Goals */}
                 <div className="flex flex-col gap-2">
                   <label className="text-charcoal text-sm font-medium">
                     What are your goals for your child?
@@ -225,7 +222,6 @@ export default function ContactPage() {
                   />
                 </div>
 
-                {/* How did you hear */}
                 <div className="flex flex-col gap-2">
                   <label className="text-charcoal text-sm font-medium">
                     How did you hear about Jacki?
@@ -240,55 +236,66 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
                   type="submit"
                   className="bg-navy text-cream px-8 py-4 rounded-full font-medium hover:bg-sage transition-colors mt-2"
                 >
                   Send Message
-                </button>
-              </form>
+                </motion.button>
+              </motion.form>
             )}
-          </div>
+          </FadeIn>
         </section>
 
         {/* FAQ */}
         <section className="bg-cream py-24 px-6">
           <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-16">
+            <FadeIn className="text-center mb-16">
               <span className="text-sage font-medium text-sm uppercase tracking-widest">
                 FAQ
               </span>
               <h2 className="text-navy text-4xl md:text-5xl font-heading mt-3">
                 Common questions
               </h2>
-            </div>
-            <div className="flex flex-col gap-4">
+            </FadeIn>
+            <StaggerContainer className="flex flex-col gap-4">
               {faqs.map((faq, i) => (
-                <div
-                  key={i}
-                  className="border border-blush rounded-2xl overflow-hidden"
-                >
-                  <button
-                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                    className="w-full flex justify-between items-center px-6 py-5 text-left bg-cream hover:bg-blush transition-colors"
-                  >
-                    <span className="text-navy font-medium text-sm">
-                      {faq.question}
-                    </span>
-                    <span className="text-sage font-bold text-lg ml-4">
-                      {openFaq === i ? "−" : "+"}
-                    </span>
-                  </button>
-                  {openFaq === i && (
-                    <div className="px-6 py-5 bg-cream border-t border-blush">
-                      <p className="text-charcoal text-sm leading-relaxed">
-                        {faq.answer}
-                      </p>
-                    </div>
-                  )}
-                </div>
+                <StaggerItem key={i}>
+                  <div className="border border-blush rounded-2xl overflow-hidden">
+                    <button
+                      onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                      className="w-full flex justify-between items-center px-6 py-5 text-left bg-cream hover:bg-blush transition-colors"
+                    >
+                      <span className="text-navy font-medium text-sm">
+                        {faq.question}
+                      </span>
+                      <motion.span
+                        animate={{ rotate: openFaq === i ? 45 : 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="text-sage font-bold text-lg ml-4"
+                      >
+                        +
+                      </motion.span>
+                    </button>
+                    {openFaq === i && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="px-6 py-5 bg-cream border-t border-blush"
+                      >
+                        <p className="text-charcoal text-sm leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </motion.div>
+                    )}
+                  </div>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
         </section>
 
