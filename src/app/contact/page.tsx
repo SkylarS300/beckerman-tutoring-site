@@ -10,38 +10,31 @@ import StaggerItem from "@/components/animations/StaggerItem";
 const faqs = [
   {
     question: "Do you offer a free consultation?",
-    answer:
-      "JACKI: Answer this in your own words. What happens on that first call?",
+    answer: "JACKI: Answer this in your own words. What happens on that first call?",
   },
   {
     question: "What age groups do you work with?",
-    answer:
-      "JACKI: Answer this. What is the youngest student you typically take on? Do you work with college students?",
+    answer: "JACKI: Answer this. What is the youngest student you typically take on? Do you work with college students?",
   },
   {
     question: "Do you work with students who have IEPs?",
-    answer:
-      "JACKI: Answer this in your own words.",
+    answer: "JACKI: Answer this in your own words.",
   },
   {
     question: "What is the difference between tutoring and executive functioning coaching?",
-    answer:
-      "JACKI: You'll know the answer far better than I will.",
+    answer: "JACKI: You'll know the answer far better than I will.",
   },
   {
     question: "Do you offer online sessions?",
-    answer:
-      "JACKI: Answer this. What platform do you use? Is the experience different from in person?",
+    answer: "JACKI: Answer this. What platform do you use? Is the experience different from in person?",
   },
   {
     question: "How are sessions structured?",
-    answer:
-      "JACKI: Describe what a typical session looks like from start to finish.",
+    answer: "JACKI: Describe what a typical session looks like from start to finish.",
   },
   {
     question: "How often do students typically meet?",
-    answer:
-      "JACKI: Answer this. What do you usually recommend and why?",
+    answer: "JACKI: Answer this. What do you usually recommend and why?",
   },
 ];
 
@@ -57,6 +50,8 @@ export default function ContactPage() {
     heardAbout: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const handleChange = (
@@ -65,9 +60,25 @@ export default function ContactPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error("Failed to send");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again or email Jacki directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -236,13 +247,18 @@ export default function ContactPage() {
                   />
                 </div>
 
+                {error && (
+                  <p className="text-red-500 text-sm">{error}</p>
+                )}
+
                 <motion.button
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                   type="submit"
-                  className="bg-navy text-cream px-8 py-4 rounded-full font-medium hover:bg-sage transition-colors mt-2"
+                  disabled={loading}
+                  className="bg-navy text-cream px-8 py-4 rounded-full font-medium hover:bg-sage transition-colors mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Send Message
+                  {loading ? "Sending..." : "Send Message"}
                 </motion.button>
               </motion.form>
             )}
