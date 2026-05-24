@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+// @ts-ignore
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Beckerman Learning | Tutoring & Executive Functioning Coaching",
+  title: "BeckermanEDU | Executive Functioning & Academic Support",
   description:
-    "Personalized tutoring and executive functioning coaching for students K–12 and beyond. Specializing in learning disabilities, ADHD, and individualized academic support in NYC.",
+    "Personalized executive functioning coaching and academic tutoring for students in grades 4–12. Specializing in ADHD, learning disabilities, and individualized support in NYC and online.",
 };
 
 export default function RootLayout({

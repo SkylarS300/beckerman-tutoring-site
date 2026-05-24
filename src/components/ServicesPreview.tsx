@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Brain, BookOpen, Calculator, GraduationCap } from "lucide-react";
+import { Brain, BookOpen } from "lucide-react";
 import FadeIn from "@/components/animations/FadeIn";
 import StaggerContainer from "@/components/animations/StaggerContainer";
 import StaggerItem from "@/components/animations/StaggerItem";
@@ -10,26 +10,12 @@ const services = [
   {
     icon: Brain,
     title: "Executive Functioning Coaching",
-    blurb:
-      "JACKI: One sentence describing this service in your own words.",
+    blurb: "Personalized support for students who struggle with organization, time management, task initiation, study strategies, planning, or maintaining confidence in school.",
   },
   {
     icon: BookOpen,
-    title: "Special Education Support",
-    blurb:
-      "JACKI: One sentence describing this service in your own words.",
-  },
-  {
-    icon: Calculator,
-    title: "Academic Tutoring",
-    blurb:
-      "JACKI: One sentence describing this service in your own words.",
-  },
-  {
-    icon: GraduationCap,
-    title: "College Readiness",
-    blurb:
-      "JACKI: One sentence describing this service in your own words.",
+    title: "Specialized Learning Support",
+    blurb: "Individualized academic support in Math, ELA, reading comprehension, writing, and study strategies tailored to each student's learning profile and needs.",
   },
 ];
 
@@ -38,12 +24,17 @@ export default function ServicesPreview() {
     <section className="bg-blush py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <FadeIn className="text-center mb-16">
-          <span className="text-sage font-medium text-sm uppercase tracking-widest">
+          <span className="text-navy font-medium text-sm uppercase tracking-widest">
             What Jacki Offers
           </span>
-          <h2 className="text-navy text-4xl md:text-5xl font-heading mt-3">
-            Services
+          <h2 className="text-charcoal text-4xl md:text-5xl font-heading mt-3">
+            Helping students feel more organized, capable, and confident in school.
           </h2>
+          <p className="text-sage mt-4 max-w-2xl mx-auto leading-relaxed">
+            Whether your child needs support with academics, executive functioning,
+            study skills, or confidence, sessions are personalized to meet them
+            where they are and help them move forward successfully.
+          </p>
         </FadeIn>
 
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -58,8 +49,8 @@ export default function ServicesPreview() {
                   <Icon size={20} strokeWidth={1.75} className="text-cream" />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <h3 className="text-navy text-lg font-heading">{title}</h3>
-                  <p className="text-charcoal text-sm leading-relaxed">{blurb}</p>
+                  <h3 className="text-charcoal text-lg font-heading">{title}</h3>
+                  <p className="text-sage text-sm leading-relaxed">{blurb}</p>
                 </div>
               </motion.div>
             </StaggerItem>
@@ -70,7 +61,7 @@ export default function ServicesPreview() {
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} className="inline-block">
             <Link
               href="/services"
-              className="bg-navy text-cream px-8 py-4 rounded-full font-medium hover:bg-sage transition-colors"
+              className="bg-navy text-cream px-8 py-4 rounded-full font-medium hover:bg-charcoal transition-colors"
             >
               View All Services
             </Link>

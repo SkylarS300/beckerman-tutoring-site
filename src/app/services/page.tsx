@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Brain, BookOpen, Calculator, GraduationCap, Monitor, Users } from "lucide-react";
+import { Brain, BookOpen } from "lucide-react";
 import FadeIn from "@/components/animations/FadeIn";
 import StaggerContainer from "@/components/animations/StaggerContainer";
 import StaggerItem from "@/components/animations/StaggerItem";
@@ -13,82 +13,29 @@ const services = [
     icon: Brain,
     title: "Executive Functioning Coaching",
     description:
-      "JACKI: Describe this service in your own words. Who is it for? What do sessions focus on? What does a student walk away with?",
+      "Personalized support for students who may struggle with organization, time management, task initiation, study strategies, planning, or maintaining confidence in school. Sessions focus on building practical systems and sustainable habits that help students feel more independent, capable, and in control academically.",
     details: [
-      "JACKI: Key thing you work on in this service",
-      "JACKI: Another key thing",
-      "JACKI: Another key thing",
-      "JACKI: Another key thing",
-      "JACKI: Another key thing",
+      "Organization & time management",
+      "Study skills & accountability",
+      "Task initiation & planning",
+      "Confidence & self-advocacy",
+      "Personalized systems & strategies",
     ],
-    tags: ["ADHD", "All Ages", "Online & In-Person"],
+    tags: ["EF", "Time Management", "Grades 4–12", "Virtual & In-Person"],
   },
   {
     icon: BookOpen,
-    title: "Special Education Support",
+    title: "Specialized Learning Support",
     description:
-      "JACKI: Describe this service in your own words. What makes your approach to special ed support different?",
+      "Individualized academic support in Math, ELA, reading comprehension, writing, and study strategies tailored to each student's learning profile and needs. Sessions are designed to strengthen foundational skills, reduce overwhelm, and help students approach school with greater confidence and independence.",
     details: [
-      "JACKI: Key thing you work on in this service",
-      "JACKI: Another key thing",
-      "JACKI: Another key thing",
-      "JACKI: Another key thing",
-      "JACKI: Another key thing",
+      "Math & problem-solving support",
+      "Reading comprehension & writing",
+      "Test prep & study strategies",
+      "Support for diverse learners",
+      "Confidence-building through individualized instruction",
     ],
-    tags: ["IEP", "Learning Disabilities", "K–12"],
-  },
-  {
-    icon: Calculator,
-    title: "Academic Tutoring",
-    description:
-      "JACKI: Describe this service. What subjects do you cover? How do you approach a student who is behind vs one who needs enrichment?",
-    details: [
-      "JACKI: Key thing you work on in this service",
-      "JACKI: Another key thing",
-      "JACKI: Another key thing",
-      "JACKI: Another key thing",
-      "JACKI: Another key thing",
-    ],
-    tags: ["All Subjects", "K–12", "Test Prep"],
-  },
-  {
-    icon: GraduationCap,
-    title: "College Readiness",
-    description:
-      "JACKI: Describe this service. What do high school students need that younger students don't? What does the transition to college look like with your support?",
-    details: [
-      "JACKI: Key thing you work on in this service",
-      "JACKI: Another key thing",
-      "JACKI: Another key thing",
-      "JACKI: Another key thing",
-    ],
-    tags: ["High School", "College Prep", "Independence"],
-  },
-  {
-    icon: Monitor,
-    title: "Online Sessions",
-    description:
-      "JACKI: Describe what online sessions look like. What platform do you use? How do you keep students engaged remotely?",
-    details: [
-      "JACKI: Key thing about your online sessions",
-      "JACKI: Another key thing",
-      "JACKI: Another key thing",
-      "JACKI: Another key thing",
-    ],
-    tags: ["Remote", "Flexible", "All Ages"],
-  },
-  {
-    icon: Users,
-    title: "Small Group Coaching",
-    description:
-      "JACKI: Describe small group sessions. How many students? What is the focus? How do you keep it individualized within a group?",
-    details: [
-      "JACKI: Key thing about your small group sessions",
-      "JACKI: Another key thing",
-      "JACKI: Another key thing",
-      "JACKI: Another key thing",
-    ],
-    tags: ["Group", "Executive Functioning", "K–12"],
+    tags: ["Grades 4–12", "ADHD/LD/Anxiety", "Math & ELA", "Virtual & In-Person"],
   },
 ];
 
@@ -101,16 +48,16 @@ export default function ServicesPage() {
         {/* Hero */}
         <section className="bg-cream py-24 px-6">
           <FadeIn className="max-w-3xl mx-auto text-center flex flex-col gap-6">
-            <span className="text-sage font-medium text-sm uppercase tracking-widest">
+            <span className="text-navy font-medium text-sm uppercase tracking-widest">
               What Jacki Offers
             </span>
-            <h1 className="text-navy text-4xl md:text-5xl font-heading leading-tight">
-              {/* JACKI: A headline for the services page. What is the throughline of everything you offer? */}
-              Your services headline goes here.
+            <h1 className="text-charcoal text-4xl md:text-5xl font-heading leading-tight">
+              Helping students feel more organized, capable, and confident in school.
             </h1>
-            <p className="text-charcoal leading-relaxed">
-              {/* JACKI: 2 sentences describing your overall approach to services. What makes the way you work different? */}
-              Your services intro goes here.
+            <p className="text-sage leading-relaxed">
+              Whether your child needs support with academics, executive functioning,
+              study skills, or confidence, sessions are personalized to meet them
+              where they are and help them move forward successfully.
             </p>
           </FadeIn>
         </section>
@@ -130,13 +77,13 @@ export default function ServicesPage() {
                       <div className="bg-navy p-3 rounded-xl w-fit">
                         <Icon size={22} strokeWidth={1.75} className="text-cream" />
                       </div>
-                      <h2 className="text-navy text-2xl font-heading">{title}</h2>
-                      <p className="text-charcoal text-sm leading-relaxed">{description}</p>
+                      <h2 className="text-charcoal text-2xl font-heading">{title}</h2>
+                      <p className="text-sage text-sm leading-relaxed">{description}</p>
                       <div className="flex flex-wrap gap-2 mt-2">
                         {tags.map((tag) => (
                           <span
                             key={tag}
-                            className="bg-blush text-navy text-xs font-medium px-3 py-1 rounded-full border border-navy/10"
+                            className="bg-blush text-charcoal text-xs font-medium px-3 py-1 rounded-full border border-charcoal/10"
                           >
                             {tag}
                           </span>
@@ -153,8 +100,8 @@ export default function ServicesPage() {
                           transition={{ duration: 0.4 }}
                           className="flex items-start gap-3"
                         >
-                          <div className="w-1.5 h-1.5 rounded-full bg-sage mt-2 shrink-0" />
-                          <p className="text-charcoal text-sm leading-relaxed">{point}</p>
+                          <div className="w-1.5 h-1.5 rounded-full bg-navy mt-2 shrink-0" />
+                          <p className="text-sage text-sm leading-relaxed">{point}</p>
                         </motion.div>
                       ))}
                     </div>
@@ -164,28 +111,28 @@ export default function ServicesPage() {
             </StaggerContainer>
           </div>
         </section>
-        
-{/* CTA */}
-<section className="bg-navy py-24 px-6">
-  <FadeIn className="max-w-3xl mx-auto flex flex-col items-center text-center gap-8">
-    <h2 className="text-cream text-4xl md:text-5xl font-heading leading-tight">
-      Not sure which service fits?
-    </h2>
-    <p className="text-cream/70 leading-relaxed max-w-xl">
-      The free consultation is the right place to start. Jacki will
-      figure out what makes sense based on your child's specific
-      situation.
-    </p>
-    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-      <Link
-        href="/contact"
-        className="bg-cream text-navy px-8 py-4 rounded-full font-medium hover:bg-blush transition-colors block"
-      >
-        Book a Free Consult
-      </Link>
-    </motion.div>
-  </FadeIn>
-</section>
+
+        {/* CTA */}
+        <section className="bg-navy py-24 px-6">
+          <FadeIn className="max-w-3xl mx-auto flex flex-col items-center text-center gap-8">
+            <h2 className="text-cream text-4xl md:text-5xl font-heading leading-tight">
+              Not sure where to start?
+            </h2>
+            <p className="text-cream/70 leading-relaxed max-w-xl">
+              The free consultation is an opportunity to discuss your child's academic
+              needs, executive functioning challenges, learning style, and goals so we
+              can determine the most supportive path forward together.
+            </p>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+              <Link
+                href="/contact"
+                className="bg-cream text-navy px-8 py-4 rounded-full font-medium hover:bg-blush transition-colors block"
+              >
+                Schedule a Free Consultation
+              </Link>
+            </motion.div>
+          </FadeIn>
+        </section>
 
       </main>
       <Footer />
